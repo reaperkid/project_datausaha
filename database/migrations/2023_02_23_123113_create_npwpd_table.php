@@ -13,9 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('type_user', function (Blueprint $table) {
+        Schema::create('npwpd', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->unique();
+            $table->integer('pajak_id');
+            $table->integer('kd_usaha_id');
+            $table->string('npwpd')->unique();
+            $table->string('nik')->unique();
+            $table->string('nama_wp');
+            $table->longText('alamat_wp');
             $table->timestamps();
             $table->softDeletes();
         });
@@ -28,6 +33,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('type_user');
+        Schema::dropIfExists('npwpd');
     }
 };

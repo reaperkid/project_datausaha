@@ -13,9 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('type_user', function (Blueprint $table) {
+        Schema::create('kecamatan_desa', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->unique();
+            $table->integer('kecamatan_id');
+            $table->integer('desa_id');
+            $table->string('nama_kecamatan');
+            $table->string('nama_desa');
             $table->timestamps();
             $table->softDeletes();
         });
@@ -28,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('type_user');
+        Schema::dropIfExists('kecamatan_desa');
     }
 };

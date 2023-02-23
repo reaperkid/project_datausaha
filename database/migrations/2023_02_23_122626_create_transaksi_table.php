@@ -13,9 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('type_user', function (Blueprint $table) {
+        Schema::create('transaksi', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->unique();
+            $table->integer('usaha_desa_id');
+            $table->integer('npwpd_id');
+            $table->integer('kobil_id');
+            $table->integer('nilai_dipungut');
             $table->timestamps();
             $table->softDeletes();
         });
@@ -28,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('type_user');
+        Schema::dropIfExists('transaksi');
     }
 };

@@ -13,9 +13,16 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('type_user', function (Blueprint $table) {
+        Schema::create('usaha_desa', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->unique();
+            $table->integer('pajak_id');
+            $table->integer('kecamatan_desa_id');
+            $table->string('nama_usaha');
+            $table->string('alamat_usaha');
+            $table->string('nama_pemilik');
+            $table->string('hp_pemilik');
+            $table->longText('foto ');
+            $table->enum('status_wajar',['Wajar','Tidak Wajar']);
             $table->timestamps();
             $table->softDeletes();
         });
@@ -28,6 +35,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('type_user');
+        Schema::dropIfExists('usaha_desa');
     }
 };

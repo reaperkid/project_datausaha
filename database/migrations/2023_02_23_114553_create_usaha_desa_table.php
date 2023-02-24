@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('alamat_usaha');
             $table->string('nama_pemilik');
             $table->string('hp_pemilik');
-            $table->longText('foto ');
+            $table->longText('foto');
             $table->enum('status_wajar',['Wajar','Tidak Wajar']);
             $table->timestamps();
             $table->softDeletes();

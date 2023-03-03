@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('npwpd', function (Blueprint $table) {
             $table->id();
-            $table->integer('pajak_id');
-            $table->integer('kd_usaha_id');
+            $table->foreignId('pajak_id')->nullable()->index('fk_npwpd_to_pajak');
+            $table->foreignId('kd_usaha_id')->nullable()->index('fk_npwpd_to_kd_usaha');
             $table->string('npwpd')->unique();
             $table->string('nik')->unique();
             $table->string('nama_wp');

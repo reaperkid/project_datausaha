@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('usaha_desa', function (Blueprint $table) {
             $table->id();
-            $table->integer('pajak_id');
-            $table->integer('kecamatan_desa_id');
+            $table->foreignId('pajak_id')->nullable()->index('fk_usaha_desa_to_pajak');
+            $table->foreignId('kecamatan_desa_id')->nullable()->index('fk_usaha_desa_to_kecamatan_desa');
             $table->string('nama_usaha');
             $table->string('alamat_usaha');
             $table->string('nama_pemilik');

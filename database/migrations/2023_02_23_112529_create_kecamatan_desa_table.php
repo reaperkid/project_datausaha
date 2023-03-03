@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('kecamatan_desa', function (Blueprint $table) {
             $table->id();
-            $table->integer('kecamatan_id');
-            $table->integer('desa_id');
+            $table->foreignId('kecamatan_id')->nullable()->indexes('fk_kecamatan_desa_to_kecamatan');
+            $table->foreignId('desa_id')->nullable()->indexes('fk_kecamatan_desa_to_desa');
             $table->string('nama_kecamatan');
             $table->string('nama_desa');
             $table->timestamps();

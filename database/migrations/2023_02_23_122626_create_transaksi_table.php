@@ -15,9 +15,9 @@ return new class extends Migration
     {
         Schema::create('transaksi', function (Blueprint $table) {
             $table->id();
-            $table->integer('usaha_desa_id');
-            $table->integer('npwpd_id');
-            $table->integer('kobil_id');
+            $table->foreignId('usaha_desa_id')->nullable()->index('fk_transaksi_to_usaha_desa');
+            $table->foreignId('npwpd_id')->nullable()->index('fk_transaksi_to_npwpd');
+            $table->foreignId('kobil_id')->nullable()->index('fk_transaksi_to_kobil');
             $table->integer('nilai_dipungut');
             $table->timestamps();
             $table->softDeletes();
